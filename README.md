@@ -8,7 +8,7 @@ Percona XtraBackup container
 docker run --rm -it --net=host \
         -v /etc:/etc/mysql:ro \
         -v /var/lib/mysql:/var/lib/mysql:ro \
-        -v ./files:/xtrabackup_backupfiles \
+        -v "$PWD/files:/xtrabackup_backupfiles" \
         xfrocks/xtrabackup --backup --host=127.0.0.1 --user=user --password=password
 ```
 
@@ -16,3 +16,12 @@ docker run --rm -it --net=host \
  * Back it up reading configuration from `/etc/my.cnf`, data from `/var/lib/mysql/`
  * Put the backup files into `files/` in current directory
  
+### Preparing
+
+```
+docker run --rm -it \
+        -v "$PWD/files:/xtrabackup_backupfiles" \
+        xfrocks/xtrabackup --prepare
+```
+
+Prepare the backed-up files in `files/` (the backup must be prepared before it can be used FYI).
