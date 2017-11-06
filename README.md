@@ -25,3 +25,23 @@ docker run --rm -it \
 ```
 
 Prepare the backed-up files in `files/` (the backup must be prepared before it can be used FYI).
+
+# Compressed Backup
+
+The image has `qpress` installed so it's possible to use xtrabackup's Compress Backup feature. Something like below should work:
+
+```bash
+# Backup with compress + parallel enabled
+xtrabackup --backup \
+	--compress --compress-threads=4 \
+	--parallel=4 \
+	--host=127.0.0.1 --user=user --password=password
+
+# Decompress it
+xtrabackup --decompress \
+        --parallel=4
+
+# Then prepare as normal
+xtrabackup --prepare
+```
+
