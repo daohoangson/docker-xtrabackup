@@ -1,12 +1,12 @@
 #!/bin/sh
 
-DOCKER_HUB_IMAGE="xfrocks/xtrabackup"
-DOCKER_HUB_TAG="2.4"
+_hubImage="xfrocks/xtrabackup"
+_hubTag="2.4.8"
 
 docker build \
-	-t "$DOCKER_HUB_IMAGE" \
-	-t "$DOCKER_HUB_IMAGE:$DOCKER_HUB_TAG" \
-	.
+  -t "$_hubImage" \
+  -t "$_hubImage:$_hubTag" \
+  .
 
-docker push "$DOCKER_HUB_IMAGE"
-docker push "$DOCKER_HUB_IMAGE:$DOCKER_HUB_TAG"
+docker push "$_hubImage"
+docker push "$_hubImage:$_hubTag"
