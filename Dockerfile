@@ -1,7 +1,7 @@
 FROM debian:stretch
 
 ARG DEBIAN_FRONTEND=noninteractive
-ENV PERCONA_XTRABACKUP_VERSION 2.4.9-1.stretch
+ENV PERCONA_XTRABACKUP_VERSION 2.4.12-1.stretch
 
 RUN set -e; \
   apt-get update; \

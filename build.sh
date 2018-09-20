@@ -3,7 +3,7 @@
 set -e
 
 _hubImage="xfrocks/xtrabackup"
-_hubImageWithTag="$_hubImage:2.4.9"
+_hubImageWithTag="$_hubImage:2.4.12"
 
 docker build \
   -t "$_hubImage" \
